@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Graph/Algorithms/kruskal.h"
 #include "Graph/Algorithms/bfs.h"
+#include "Graph/Algorithms/astar.h"
 using namespace std;
 
 int main() {
@@ -49,6 +50,9 @@ int main() {
     for (auto edge : result) {
         cout << edge->vertexes[0]->data << " - " << edge->vertexes[1]->data << ", peso: " << edge->weight << endl;
     }
+
+    // Realizar la búsqueda A*
+    // vector<Vertex<string, float>*> path = exec_astar(graph, "2792", "2796");
 
     return 0;
 }
