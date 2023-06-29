@@ -3,6 +3,7 @@
 #include "Graph/Algorithms/kruskal.h"
 #include "Graph/Algorithms/bfs.h"
 #include "Graph/Algorithms/astar.h"
+#include "Graph/Algorithms/Dijkstra.h"
 using namespace std;
 
 int main() {
@@ -54,5 +55,7 @@ int main() {
     // Realizar la búsqueda A*
     // vector<Vertex<string, float>*> path = exec_astar(graph, "2792", "2796");
 
+    Dijkstra<string, float> dijkstra(graph);
+    dijkstra.shortestPath("2792", "2796");
     return 0;
 }
