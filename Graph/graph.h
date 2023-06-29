@@ -160,6 +160,12 @@ public:
         }
         cout << endl;
     };
+    Vertex<TV, TE>* getVertex(string id) {
+    if (vertexes.find(id) != vertexes.end()) {
+        return vertexes[id];
+    }
+    return nullptr;
+}
     
     TV findById(string id) {
         return vertexes[id]->data;
