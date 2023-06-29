@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Graph/Algorithms/kruskal.h"
 #include "Graph/Algorithms/bfs.h"
+#include "Graph/Algorithms/Dijkstra.h"
 using namespace std;
 
 int main() {
@@ -49,6 +50,7 @@ int main() {
     for (auto edge : result) {
         cout << edge->vertexes[0]->data << " - " << edge->vertexes[1]->data << ", peso: " << edge->weight << endl;
     }
-
+    Dijkstra<string, int> dijkstra(graph);
+    dijkstra.shortestPath("2792", "2796");
     return 0;
 }
