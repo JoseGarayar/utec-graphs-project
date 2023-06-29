@@ -45,19 +45,25 @@ public:
 
     void insertVertex(string id, TV vertex) {
         Vertex<TV, TE>* new_vertex = new Vertex<TV, TE>;
-        list<Edge<TV, TE>*> myList;
         new_vertex->data = vertex;
-        new_vertex->edges = myList;
-        vertexes.insert(make_pair(id,new_vertex));
+        vertexes[id] = new_vertex;
     }
 
     void createEdge(string id1, string id2, TE w) {
-        Edge<TV, TE>* new_edge = new Edge<TV, TE>;
-        new_edge->weight = w;
-        new_edge->vertexes[0] = vertexes[id1];
-        new_edge->vertexes[1] = vertexes[id2];
-        vertexes[id1]->edges.push_back(new_edge);
-        vertexes[id2]->edges.push_back(new_edge);
+        Vertex<TV, TE>* vertex1 = vertexes[id1];
+        Vertex<TV, TE>* vertex2 = vertexes[id2];
+
+        Edge<TV, TE>* edge1 = new Edge<TV, TE>;
+        edge1->vertexes[0] = vertex1;
+        edge1->vertexes[1] = vertex2;
+        edge1->weight = w;
+        vertex1->edges.push_back(edge1);
+
+        Edge<TV, TE>* edge2 = new Edge<TV, TE>;
+        edge2->vertexes[0] = vertex2;
+        edge2->vertexes[1] = vertex1;
+        edge2->weight = w;
+        vertex2->edges.push_back(edge2);
     };   
 
     void deleteVertex(string id) {
@@ -161,11 +167,11 @@ public:
         cout << endl;
     };
     Vertex<TV, TE>* getVertex(string id) {
-    if (vertexes.find(id) != vertexes.end()) {
-        return vertexes[id];
+        if (vertexes.find(id) != vertexes.end()) {
+            return vertexes[id];
+        }
+        return nullptr;
     }
-    return nullptr;
-}
     vector<Vertex<TV, TE>*> getVertices() {
         std::vector<Vertex<TV, TE>*> vertices;
         for (auto& pair : vertexes) {
