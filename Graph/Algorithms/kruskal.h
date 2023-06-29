@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <algorithm>
-#include "graph.h"
+#include "../graph.h"
 
 template<typename TV, typename TE>
 struct DisjointSet {

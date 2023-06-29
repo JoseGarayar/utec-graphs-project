@@ -1,11 +1,11 @@
 #include "Graph/graph.h"
 #include <iostream>
-#include "kruskal.h"
-#include "bfs.h"
+#include "Graph/Algorithms/kruskal.h"
+#include "Graph/Algorithms/bfs.h"
 using namespace std;
 
 int main() {
-    Graph<string,int> graph;
+    Graph<string,float> graph;
     // Testing graph methods
     // create vertex
     graph.insertVertex("2792", "Juliaca");
@@ -43,7 +43,7 @@ int main() {
     cout << "BFS busqueda desde A:" << endl;
     BFS(graph, "2792");
     cout << endl;
-    vector<Edge<string, float>*> result = exec_kruskal<string, float>(graph);
+    vector<Edge<string, float>*> result = exec_kruskal(graph);
 
     cout << "Aristas del MST:" << endl;
     for (auto edge : result) {
