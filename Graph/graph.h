@@ -166,6 +166,13 @@ public:
     }
     return nullptr;
 }
+    vector<Vertex<TV, TE>*> getVertices() {
+        std::vector<Vertex<TV, TE>*> vertices;
+        for (auto& pair : vertexes) {
+            vertices.push_back(pair.second);
+        }
+        return vertices;
+    }
     
     TV findById(string id) {
         return vertexes[id]->data;
