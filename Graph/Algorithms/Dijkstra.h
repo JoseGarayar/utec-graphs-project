@@ -86,13 +86,13 @@ std::vector<Vertex<TV, TE>*> printPath(Vertex<TV, TE>* startVertex, Vertex<TV, T
 
     pathVertices.push_back(startVertex);
 
-    for (int i = pathVertices.size() - 1; i >= 0; --i) {
+    /*for (int i = pathVertices.size() - 1; i >= 0; --i) {
         std::cout << pathVertices[i]->data;
         if (i != 0) {
             std::cout << " -> ";
         }
     }
-    std::cout << std::endl;
+    std::cout << std::endl;*/
 
     for (auto& pair : path) {
         delete pair.second;
