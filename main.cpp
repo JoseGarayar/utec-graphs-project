@@ -8,6 +8,8 @@
 #include "Graph/graph_factory.h"
 #include "Parser/nlohmann/json.hpp"
 #include "Graph/Models/airport.h"
+#include "Graph/Algorithms/dfs.h"
+
 using json = nlohmann::json;
 #include "tester.h"
 
@@ -65,6 +67,35 @@ int main() {
     //     cout << edge->vertexes[0]->data.city << " - " << edge->vertexes[1]->data.city << ", peso: " << edge->weight << endl;
     // }
 
+    Dijkstra<Airport, float> dijkstra(graph);
+    string startIdD = "6067";
+    string endIdD = "6066";
+    std::cout << "Dijkstra: From: 6067 To: 6066 " << std::endl;
+    vector<Vertex<Airport, float>*> result= dijkstra.shortestPath(startIdD, endIdD);
+    for (auto vert : result) {
+        cout << "Aeropuerto :" << vert->data.city << endl;
+    }
+    std::cout << std::endl;
+
+
+    string startIdBSF = "6067";
+    cout << "BFS busqueda desde 6067:" << endl;
+    vector<Vertex<Airport, float>*> resultBSF= BFS(graph, startIdBSF);
+    for (auto vert : resultBSF) {
+        cout << "Aeropuerto :" << vert->data.city << endl;
+    }
+    cout << endl;
+
+    string startIdDSF = "6067";
+    cout << "DFS busqueda desde 6067:" << endl;
+    vector<Vertex<Airport, float>*> resultDFS = DFS(graph,startIdDSF);
+    cout << "BFS busqueda desde F" << endl;
+    for (auto vert : resultDFS) {
+        cout << "Aeropuerto :" << vert->data.city << endl;
+    }
+
+    cout << endl;
+
     // Test graph methods
     // test_graph_methods();
 
@@ -77,7 +108,7 @@ int main() {
     // Test Kruskal
     // test_kruskal();
 
-    test_dfs();
+    //test_dfs();
 
     return 0;
 }
