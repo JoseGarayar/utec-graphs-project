@@ -4,11 +4,15 @@
 #include "Graph/Algorithms/bfs.h"
 #include "Graph/Algorithms/astar.h"
 #include "Graph/Algorithms/Dijkstra.h"
+#include "Graph/graph_factory.h"
 #include "tester.h"
 
 using namespace std;
 
 int main() {
+    GraphFactory factory;
+    Graph<Airport, float> gr = factory.makeGraph();
+    
     Graph<string,float> graph;
     // Testing graph methods
     // create vertex
@@ -44,11 +48,11 @@ int main() {
     // graph.display();
 
     // Test A*
-    // test_astar();
+    test_astar();
     // Test BFS
-    // test_bfs();
+    test_bfs();
     // Test Dijkstra
-    // test_dijkstra();
+    test_dijkstra();
     // Test Kruskal
     test_kruskal();
 

@@ -68,7 +68,7 @@ public:
         if (distance[endVertex] == std::numeric_limits<TE>::max()) {
             std::cout << "No se encontro camino de " << startId << " a " << endId << std::endl;
         } else {
-            std::cout << "Camino corto de " << startId << " a " << endId << ": " << std::endl;
+            std::cout << "Camino corto Dijkstra de " << startId << " a " << endId << ": " << std::endl;
             printPath(startVertex, endVertex);
         }
     }
