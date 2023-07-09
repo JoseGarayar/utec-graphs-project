@@ -6,7 +6,10 @@
 #include "../graph.h"
 
 template<typename TV, typename TE>
-void DFS(Graph<TV, TE>& graph, string startVertexId) {
+std::vector<Vertex<TV, TE>*>  DFS(Graph<TV, TE>& graph, string startVertexId) {
+
+    std::vector<Vertex<TV, TE>*> result;
+
     if (graph.empty()) {
         throw out_of_range("Graph is empty");        
     }
@@ -19,6 +22,7 @@ void DFS(Graph<TV, TE>& graph, string startVertexId) {
 
     stack<Vertex<TV, TE>*> vertexStack;
     vertexStack.push(start);
+
     unordered_set<Vertex<TV, TE>*> visitedVertices;
     visitedVertices.insert(start);
 
@@ -27,19 +31,23 @@ void DFS(Graph<TV, TE>& graph, string startVertexId) {
 
         Vertex<TV, TE>* verticeActual = vertexStack.top();
         vertexStack.pop();
-        cout << "Vertice Visitado " << verticeActual->data << endl;
+
+        result.push_back(verticeActual);
+
+        //cout << "Vertice Visitado " << verticeActual->data << endl;
 
         for (Edge<TV, TE>* edge : verticeActual->edges) {
             Vertex<TV, TE>* adjacentVertex = edge->vertexes[0] == verticeActual ? edge->vertexes[1] : edge->vertexes[0];
             
             if (visitedVertices.find(adjacentVertex) == visitedVertices.end()) {
                 visitedVertices.insert(adjacentVertex);
-                vertexStack.push(adjacentVertex);
+                vertexStack.push(adjacentVertex);                
             }
 
         }
 
     }
+    return result;
     
 };
 

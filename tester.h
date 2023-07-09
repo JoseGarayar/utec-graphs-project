@@ -76,7 +76,10 @@ void test_bfs() {
     // graph_bfs.createEdge("A", "B", 2);
     string startId = "2792";
     cout << "BFS busqueda desde A:" << endl;
-    BFS(graph_bfs, startId);
+    vector<Vertex<string, float>*> result= BFS(graph_bfs, startId);
+    for (auto vert : result) {
+        cout << "Vertice Visitado " << vert->data << endl;
+    }
     cout << endl;
 }
 
@@ -100,8 +103,15 @@ void test_dfs() {
     graph_dfs.createEdge("D", "F", 0);
     graph_dfs.createEdge("E", "F", 0);
 
-    cout << "DFS busqueda desde F:" << endl;
-    DFS(graph_dfs,"F");
+    
+    vector<Vertex<string, float>*> result = DFS(graph_dfs,"F");
+
+    
+    cout << "BFS busqueda desde F" << endl;
+    for (auto vert : result) {
+        cout << "Vertice Visitado " << vert->data << endl;
+    }
+
     cout << endl;
     
 }
