@@ -89,13 +89,7 @@ int main() {
     // Test Kruskal
     test_kruskal();
 
-<<<<<<< HEAD
     test_dfs();
 
-=======
-
-    cout << "Print Ariports from pe.json" << endl;
-    readFromJSON();
->>>>>>> 0a65424cb104d1a0fd22b855f5664dce3eee44ed
     return 0;
 }
