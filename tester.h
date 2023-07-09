@@ -69,8 +69,14 @@ void test_dijkstra() {
     graph_dijkstra.createEdge("E", "B", 9);
     graph_dijkstra.createEdge("H", "B", 3);
     Dijkstra<string, float> dijkstra(graph_dijkstra);
-    dijkstra.shortestPath("A", "B");
+    
+    
+    vector<Vertex<string, float>*> result= dijkstra.shortestPath("A", "B");
+    for (auto vert : result) {
+        cout << "Vertice Visitado " << vert->data << endl;
+    }
     std::cout << std::endl;
+
 }
 
 void test_astar() {
