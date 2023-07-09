@@ -22,7 +22,7 @@ private:
         j.at("destinations").get_to(a.destinations);
     }
 public:
-    GraphFactory(): path("Parser/Data/pe.json") {
+    GraphFactory(): path("Parser/Data/airports.json") {
         airports = createAirportsFromJSON();
     }
     
