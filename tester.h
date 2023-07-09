@@ -5,6 +5,8 @@
 #include "Graph/Algorithms/astar.h"
 #include "Graph/Algorithms/kruskal.h"
 #include "Graph/Algorithms/Dijkstra.h"
+#include "Graph/Algorithms/dfs.h"
+
 
 using namespace std;
 
@@ -76,4 +78,30 @@ void test_bfs() {
     cout << "BFS busqueda desde A:" << endl;
     BFS(graph_bfs, startId);
     cout << endl;
+}
+
+void test_dfs() {
+    Graph<string,float> graph_dfs;
+    graph_dfs.insertVertex("A", "A");
+    graph_dfs.insertVertex("B", "B");
+    graph_dfs.insertVertex("C", "C");
+    graph_dfs.insertVertex("D", "D");
+    graph_dfs.insertVertex("E", "E");
+    graph_dfs.insertVertex("F", "F");
+    
+    graph_dfs.createEdge("A", "B", 0);
+    graph_dfs.createEdge("A", "C", 0);
+    graph_dfs.createEdge("A", "F", 0);
+    graph_dfs.createEdge("B", "D", 0);
+    graph_dfs.createEdge("B", "C", 0);
+    graph_dfs.createEdge("B", "F", 0);
+    graph_dfs.createEdge("C", "E", 0);
+    graph_dfs.createEdge("C", "D", 0);
+    graph_dfs.createEdge("D", "F", 0);
+    graph_dfs.createEdge("E", "F", 0);
+
+    cout << "DFS busqueda desde F:" << endl;
+    DFS(graph_dfs,"F");
+    cout << endl;
+    
 }

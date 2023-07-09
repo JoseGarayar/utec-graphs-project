@@ -30,7 +30,7 @@ void DFS(Graph<TV, TE>& graph, string startVertexId) {
         cout << "Vertice Visitado " << verticeActual->data << endl;
 
         for (Edge<TV, TE>* edge : verticeActual->edges) {
-            Vertex<TV, TE>* adjacentVertex = edge->vertexes[0] == currentVertex ? edge->vertexes[1] : edge->vertexes[0];
+            Vertex<TV, TE>* adjacentVertex = edge->vertexes[0] == verticeActual ? edge->vertexes[1] : edge->vertexes[0];
             
             if (visitedVertices.find(adjacentVertex) == visitedVertices.end()) {
                 visitedVertices.insert(adjacentVertex);

@@ -52,5 +52,7 @@ int main() {
     // Test Kruskal
     test_kruskal();
 
+    test_dfs();
+
     return 0;
 }
