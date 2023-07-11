@@ -109,7 +109,7 @@ vector<Vertex<Airport, float>*> result= dijkstra.shortestPath(startIdD, endIdD);
 Una búsqueda en anchura (BFS) es un algoritmo de búsqueda para lo cual recorre los nodos de un grafo, comenzando en la raíz (eligiendo algún nodo como elemento raíz en el caso de un grafo), para luego explorar todos los vecinos de este nodo.
 
 ```cpp
-//2- Genera el camino mas corto desde el vértice "A" hasta el vértice "Z"
+//3- Genera una ruta desde un nodo hacia todos los demas segun el dilema de anchuura
 vector<Vertex<Airport, float>*> resultBSF= BFS(graph, startIdBSF);
 ```
 ![bfs](https://github.com/JoseGarayar/utec-graphs-project/assets/134245641/e9b23e5f-ed8e-4224-838e-82ad5fb2b8ab)
@@ -120,7 +120,7 @@ vector<Vertex<Airport, float>*> resultBSF= BFS(graph, startIdBSF);
 Una búsqueda en profundidad (DFS) es un algoritmo de búsqueda para lo cual recorre los nodos de un grafo. Su funcionamiento consiste en ir expandiendo cada uno de los nodos que va localizando, de forma recurrente (desde el nodo padre hacia el nodo hijo).
 
 ```cpp
-//2- Genera el camino mas corto desde el vértice "A" hasta el vértice "Z"
+//4- Genera una ruta desde un nodo hacia todos los demas segun el dilema de profundidad
 vector<Vertex<Airport, float>*> resultDFS = DFS(graph,startIdDSF);
 ```
 
