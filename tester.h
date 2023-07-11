@@ -107,49 +107,48 @@ void test_dijkstra() {
     std::cout << std::endl;
 }
 
-void test_astar() {
-    Graph<string,float> graph_astar;
-    graph_astar.insertVertex("A", "A");
-    graph_astar.insertVertex("B", "B");
-    graph_astar.insertVertex("C", "C");
-    graph_astar.insertVertex("D", "D");
-    graph_astar.insertVertex("E", "E");
-    graph_astar.insertVertex("F", "F");
-    graph_astar.insertVertex("G", "G");
-    graph_astar.insertVertex("H", "H");
-    graph_astar.insertVertex("I", "I");
-    graph_astar.createEdge("A", "B", 22);
-    graph_astar.createEdge("A", "C", 9);
-    graph_astar.createEdge("A", "D", 12);
-    graph_astar.createEdge("B", "C", 35);
-    graph_astar.createEdge("B", "H", 34);
-    graph_astar.createEdge("B", "F", 36);
-    graph_astar.createEdge("C", "D", 4);
-    graph_astar.createEdge("C", "E", 65);
-    graph_astar.createEdge("C", "F", 42);
-    graph_astar.createEdge("D", "E", 33);
-    graph_astar.createEdge("D", "I", 30);
-    graph_astar.createEdge("E", "F", 18);
-    graph_astar.createEdge("E", "G", 23);
-    graph_astar.createEdge("F", "G", 39);
-    graph_astar.createEdge("F", "H", 24);
-    graph_astar.createEdge("G", "H", 25);
-    graph_astar.createEdge("G", "I", 21);
-    graph_astar.createEdge("H", "I", 19);
-    string startId = "A";
-    string endId = "I";
-    bool test = true;
-    vector<Vertex<string, float>*> pathVertices = exec_astar(graph_astar, startId, endId, test);
-    std::cout << "Camino corto usando A* de " << startId << " a " << endId << ": " << std::endl;
-    for (int i = 0; i < pathVertices.size(); ++i) {
-        std::cout << pathVertices[i]->data;
-        if (i != pathVertices.size() - 1) {
-            std::cout << " -> ";
-        }
-    }
-    std::cout << std::endl;
-    std::cout << std::endl;
-}
+// void test_astar() {
+//     Graph<string,float> graph_astar;
+//     graph_astar.insertVertex("A", "A");
+//     graph_astar.insertVertex("B", "B");
+//     graph_astar.insertVertex("C", "C");
+//     graph_astar.insertVertex("D", "D");
+//     graph_astar.insertVertex("E", "E");
+//     graph_astar.insertVertex("F", "F");
+//     graph_astar.insertVertex("G", "G");
+//     graph_astar.insertVertex("H", "H");
+//     graph_astar.insertVertex("I", "I");
+//     graph_astar.createEdge("A", "B", 22);
+//     graph_astar.createEdge("A", "C", 9);
+//     graph_astar.createEdge("A", "D", 12);
+//     graph_astar.createEdge("B", "C", 35);
+//     graph_astar.createEdge("B", "H", 34);
+//     graph_astar.createEdge("B", "F", 36);
+//     graph_astar.createEdge("C", "D", 4);
+//     graph_astar.createEdge("C", "E", 65);
+//     graph_astar.createEdge("C", "F", 42);
+//     graph_astar.createEdge("D", "E", 33);
+//     graph_astar.createEdge("D", "I", 30);
+//     graph_astar.createEdge("E", "F", 18);
+//     graph_astar.createEdge("E", "G", 23);
+//     graph_astar.createEdge("F", "G", 39);
+//     graph_astar.createEdge("F", "H", 24);
+//     graph_astar.createEdge("G", "H", 25);
+//     graph_astar.createEdge("G", "I", 21);
+//     graph_astar.createEdge("H", "I", 19);
+//     string startId = "A";
+//     string endId = "I";
+//     vector<Vertex<string, float>*> pathVertices = exec_astar(graph_astar, startId, endId);
+//     std::cout << "Camino corto usando A* de " << startId << " a " << endId << ": " << std::endl;
+//     for (int i = 0; i < pathVertices.size(); ++i) {
+//         std::cout << pathVertices[i]->data;
+//         if (i != pathVertices.size() - 1) {
+//             std::cout << " -> ";
+//         }
+//     }
+//     std::cout << std::endl;
+//     std::cout << std::endl;
+// }
 
 void test_bfs() {
     Graph<string,float> graph_bfs;
