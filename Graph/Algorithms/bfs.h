@@ -5,16 +5,17 @@
 #include <unordered_set>
 
 template<typename TV, typename TE>
-void BFS(Graph<TV, TE>& graph, string startVertexId) {
+std::vector<Vertex<TV, TE>*>  BFS(Graph<TV, TE>& graph, string startVertexId) {
+
+    std::vector<Vertex<TV, TE>*> result;
+
     if (graph.empty()) {
-        cout << "Grafo vacio" << endl;
-        return;
+        throw out_of_range("Graph is empty");  
     }
 
     Vertex<TV, TE>* start = graph.getVertex(startVertexId);
     if (start == nullptr) {
-        cout << "Vertice de inicio no encontrado" << endl; 
-        return;
+        throw out_of_range("Start vertex doesn't found");
     }
 
     queue<Vertex<TV, TE>*> vertexQueue;
@@ -26,7 +27,9 @@ void BFS(Graph<TV, TE>& graph, string startVertexId) {
     while (!vertexQueue.empty()) {
        
         Vertex<TV, TE>* currentVertex = vertexQueue.front();
-        cout << "Vertice Visitado " << currentVertex->data << endl;
+
+        result.push_back(currentVertex);
+        //cout << "Vertice Visitado " << currentVertex->data << endl;
         vertexQueue.pop();
       
         for (Edge<TV, TE>* edge : currentVertex->edges) {
@@ -38,6 +41,7 @@ void BFS(Graph<TV, TE>& graph, string startVertexId) {
             }
         }
     }
+    return result;
 }
 
 #endif

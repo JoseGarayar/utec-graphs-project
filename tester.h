@@ -5,6 +5,8 @@
 #include "Graph/Algorithms/astar.h"
 #include "Graph/Algorithms/kruskal.h"
 #include "Graph/Algorithms/Dijkstra.h"
+#include "Graph/Algorithms/dfs.h"
+
 
 using namespace std;
 
@@ -103,8 +105,14 @@ void test_dijkstra() {
     graph_dijkstra.createEdge("E", "B", 9);
     graph_dijkstra.createEdge("H", "B", 3);
     Dijkstra<string, float> dijkstra(graph_dijkstra);
-    dijkstra.shortestPath("A", "B");
+    
+    
+    vector<Vertex<string, float>*> result= dijkstra.shortestPath("A", "B");
+    for (auto vert : result) {
+        cout << "Vertice Visitado " << vert->data << endl;
+    }
     std::cout << std::endl;
+
 }
 
 // void test_astar() {
@@ -175,6 +183,42 @@ void test_bfs() {
     graph_bfs.createEdge("G", "I", 0);
     string startId = "A";
     cout << "BFS busqueda desde A:" << endl;
-    BFS(graph_bfs, startId);
+    vector<Vertex<string, float>*> result= BFS(graph_bfs, startId);
+    for (auto vert : result) {
+        cout << "Vertice Visitado " << vert->data << endl;
+    }
     cout << endl;
+}
+
+void test_dfs() {
+    Graph<string,float> graph_dfs;
+    graph_dfs.insertVertex("A", "A");
+    graph_dfs.insertVertex("B", "B");
+    graph_dfs.insertVertex("C", "C");
+    graph_dfs.insertVertex("D", "D");
+    graph_dfs.insertVertex("E", "E");
+    graph_dfs.insertVertex("F", "F");
+    
+    graph_dfs.createEdge("A", "B", 0);
+    graph_dfs.createEdge("A", "C", 0);
+    graph_dfs.createEdge("A", "F", 0);
+    graph_dfs.createEdge("B", "D", 0);
+    graph_dfs.createEdge("B", "C", 0);
+    graph_dfs.createEdge("B", "F", 0);
+    graph_dfs.createEdge("C", "E", 0);
+    graph_dfs.createEdge("C", "D", 0);
+    graph_dfs.createEdge("D", "F", 0);
+    graph_dfs.createEdge("E", "F", 0);
+
+    
+    vector<Vertex<string, float>*> result = DFS(graph_dfs,"F");
+
+    
+    cout << "BFS busqueda desde F" << endl;
+    for (auto vert : result) {
+        cout << "Vertice Visitado " << vert->data << endl;
+    }
+
+    cout << endl;
+    
 }

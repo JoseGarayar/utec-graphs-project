@@ -26,13 +26,13 @@ private:
 public:
     Dijkstra(Graph<TV, TE>& g) : graph(g) {}
 
-    void shortestPath(string startId, string endId) {
+    std::vector<Vertex<TV, TE>*> shortestPath(string startId, string endId) {
+        std::vector<Vertex<TV, TE>*> result;
         Vertex<TV, TE>* startVertex = graph.getVertex(startId);
         Vertex<TV, TE>* endVertex = graph.getVertex(endId);
 
         if (!startVertex || !endVertex) {
-            std::cout << "Vertice invalido" << std::endl;
-            return;
+            throw out_of_range("Start vertex doesn't found");
         }
 
         for (auto& pair : graph.getVertices()) {
@@ -69,12 +69,13 @@ public:
             std::cout << "No se encontro camino de " << startId << " a " << endId << std::endl;
         } else {
             std::cout << "Camino corto Dijkstra de " << startId << " a " << endId << ": " << std::endl;
-            printPath(startVertex, endVertex);
+            result = printPath(startVertex, endVertex);
         }
+        return result;
     }
 
 private:
-void printPath(Vertex<TV, TE>* startVertex, Vertex<TV, TE>* endVertex) {
+std::vector<Vertex<TV, TE>*> printPath(Vertex<TV, TE>* startVertex, Vertex<TV, TE>* endVertex) {
     std::vector<Vertex<TV, TE>*> pathVertices;
     PathNode<TV, TE>* current = path[endVertex];
 
@@ -85,17 +86,20 @@ void printPath(Vertex<TV, TE>* startVertex, Vertex<TV, TE>* endVertex) {
 
     pathVertices.push_back(startVertex);
 
-    for (int i = pathVertices.size() - 1; i >= 0; --i) {
+    /*for (int i = pathVertices.size() - 1; i >= 0; --i) {
         std::cout << pathVertices[i]->data;
         if (i != 0) {
             std::cout << " -> ";
         }
     }
-    std::cout << std::endl;
+    std::cout << std::endl;*/
 
     for (auto& pair : path) {
         delete pair.second;
     }
+    reverse(pathVertices.begin(), pathVertices.end());
+    //sort(pathVertices.rbegin(), pathVertices.rend());
+    return pathVertices;
 }
 };
 
