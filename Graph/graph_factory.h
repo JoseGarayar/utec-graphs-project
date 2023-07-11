@@ -22,7 +22,7 @@ private:
         j.at("destinations").get_to(a.destinations);
     }
 public:
-    GraphFactory(): path("Parser/Data/airports.json") {
+    GraphFactory(string path): path(path) {
         airports = createAirportsFromJSON();
     }
     
@@ -44,6 +44,7 @@ public:
                 return airport;
             }
         }
+        return Airport();
     }
 
     bool existAirport(string id) {
