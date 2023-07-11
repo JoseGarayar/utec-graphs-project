@@ -17,8 +17,8 @@ std::vector<Vertex<TV, TE>*> exec_astar(Graph<TV, TE>& graph, const std::string&
     // Priority queue for open set (min-heap based on f_score)
     std::priority_queue<
         std::pair<TE, Vertex<TV, TE>*>,
-        std::vector<std::pair<TE, Vertex<TV, TE>*>>,
-        std::greater<std::pair<TE, Vertex<TV, TE>*>>> openSet;
+        std::vector<std::pair<TE, Vertex<TV, TE>*> >,
+        std::greater<std::pair<TE, Vertex<TV, TE>*> > > openSet;
 
     std::unordered_map<Vertex<TV, TE>*, TE> gScore;  // Cost from start node
     std::unordered_map<Vertex<TV, TE>*, TE> fScore;  // Estimated total cost to goal node
