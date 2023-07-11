@@ -44,7 +44,7 @@ int main() {
     // graph.display();
 
     // Test A*
-    // test_astar();
+    test_astar();
     // Test BFS
     test_bfs();
     // Test Dijkstra
