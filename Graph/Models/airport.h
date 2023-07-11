@@ -10,6 +10,7 @@ struct Airport {
     string latitude;
     string longitude;
     string name;
+    vector<string> destinations;
 };
 
 #endif
