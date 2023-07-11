@@ -4,6 +4,8 @@
 #include "Graph/Algorithms/bfs.h"
 #include "Graph/Algorithms/astar.h"
 #include "Graph/Algorithms/Dijkstra.h"
+#include "tester.h"
+
 using namespace std;
 
 int main() {
@@ -14,9 +16,9 @@ int main() {
     graph.insertVertex("2796", "Tumbes");
     // create edge
     graph.createEdge("2792", "2796", 400);
-    graph.displayVertex("2792");
-    graph.displayVertex("2796");
-    graph.display();
+    // graph.displayVertex("2792");
+    // graph.displayVertex("2796");
+    // graph.display();
     // density
     // cout << "Density: " << graph.density() << endl;
     // cout << "Is dense: " << graph.isDense() << endl;
@@ -40,22 +42,15 @@ int main() {
     // cout << "Clearing graph" << endl;
     // graph.clear();
     // graph.display();
-    
-    // Realizar la búsqueda BFS desde el vértice "A"
-    cout << "BFS busqueda desde A:" << endl;
-    BFS(graph, "2792");
-    cout << endl;
-    vector<Edge<string, float>*> result = exec_kruskal(graph);
 
-    cout << "Aristas del MST:" << endl;
-    for (auto edge : result) {
-        cout << edge->vertexes[0]->data << " - " << edge->vertexes[1]->data << ", peso: " << edge->weight << endl;
-    }
+    // Test A*
+    // test_astar();
+    // Test BFS
+    // test_bfs();
+    // Test Dijkstra
+    // test_dijkstra();
+    // Test Kruskal
+    test_kruskal();
 
-    // Realizar la búsqueda A*
-    // vector<Vertex<string, float>*> path = exec_astar(graph, "2792", "2796");
-
-    Dijkstra<string, float> dijkstra(graph);
-    dijkstra.shortestPath("2792", "2796");
     return 0;
 }
