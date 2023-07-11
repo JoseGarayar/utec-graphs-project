@@ -45,10 +45,29 @@ void test_kruskal() {
 
 void test_dijkstra() {
     Graph<string,float> graph_dijkstra;
-    // graph_dijkstra.insertVertex("I", "I");
-    // graph_dijkstra.createEdge("A", "B", 2);
+    graph_dijkstra.insertVertex("A", "A");
+    graph_dijkstra.insertVertex("B", "B");
+    graph_dijkstra.insertVertex("C", "C");
+    graph_dijkstra.insertVertex("D", "D");
+    graph_dijkstra.insertVertex("E", "E");
+    graph_dijkstra.insertVertex("F", "F");
+    graph_dijkstra.insertVertex("G", "G");
+    graph_dijkstra.insertVertex("H", "H");
+    graph_dijkstra.createEdge("A", "C", 4);
+    graph_dijkstra.createEdge("A", "F", 7);
+    graph_dijkstra.createEdge("C", "F", 2);
+    graph_dijkstra.createEdge("C", "D", 3);
+    graph_dijkstra.createEdge("C", "G", 9);
+    graph_dijkstra.createEdge("F", "G", 8);
+    graph_dijkstra.createEdge("D", "G", 7);
+    graph_dijkstra.createEdge("D", "E", 3);
+    graph_dijkstra.createEdge("G", "E", 2);
+    graph_dijkstra.createEdge("G", "H", 3);
+    graph_dijkstra.createEdge("E", "H", 7);
+    graph_dijkstra.createEdge("E", "B", 9);
+    graph_dijkstra.createEdge("H", "B", 3);
     Dijkstra<string, float> dijkstra(graph_dijkstra);
-    // dijkstra.shortestPath("2792", "2796");
+    dijkstra.shortestPath("A", "B");
 }
 
 void test_astar() {
@@ -70,9 +89,28 @@ void test_astar() {
 
 void test_bfs() {
     Graph<string,float> graph_bfs;
-    // graph_bfs.insertVertex("I", "I");
-    // graph_bfs.createEdge("A", "B", 2);
-    string startId = "2792";
+    graph_bfs.insertVertex("A", "A");
+    graph_bfs.insertVertex("B", "B");
+    graph_bfs.insertVertex("C", "C");
+    graph_bfs.insertVertex("D", "D");
+    graph_bfs.insertVertex("E", "E");
+    graph_bfs.insertVertex("F", "F");
+    graph_bfs.insertVertex("G", "G");
+    graph_bfs.insertVertex("H", "H");
+    graph_bfs.insertVertex("I", "I");
+    graph_bfs.createEdge("A", "B", 0);
+    graph_bfs.createEdge("A", "C", 0);
+    graph_bfs.createEdge("A", "E", 0);
+    graph_bfs.createEdge("B", "C", 0);
+    graph_bfs.createEdge("B", "D", 0);
+    graph_bfs.createEdge("C", "D", 0);
+    graph_bfs.createEdge("C", "E", 0);
+    graph_bfs.createEdge("C", "F", 0);
+    graph_bfs.createEdge("E", "H", 0);
+    graph_bfs.createEdge("E", "G", 0);
+    graph_bfs.createEdge("H", "I", 0);
+    graph_bfs.createEdge("G", "I", 0);
+    string startId = "A";
     cout << "BFS busqueda desde A:" << endl;
     BFS(graph_bfs, startId);
     cout << endl;

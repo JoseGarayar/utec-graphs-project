@@ -46,9 +46,9 @@ int main() {
     // Test A*
     // test_astar();
     // Test BFS
-    // test_bfs();
+    test_bfs();
     // Test Dijkstra
-    // test_dijkstra();
+    test_dijkstra();
     // Test Kruskal
     test_kruskal();
 
