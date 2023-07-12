@@ -6,7 +6,7 @@
 
 El presente informe tiene como objetivo detallar el proyecto de implementación de una estructura de datos de tipo grafo y los algoritmos de búsqueda asociados. El proyecto se centra en el desarrollo de un JSON file parser que permita construir un grafo a partir de un dataset en formato JSON, con el fin de representar y analizar relaciones entre elementos. A continuación, se describirán los detalles del proyecto, incluyendo los integrantes del equipo, la descripción del proyecto, la estructura de datos de grafo, los métodos y algoritmos implementados, y el JSON file parser.
 
-![Grafos Imagen general](https://github.com/JoseGarayar/utec-graphs-project/assets/134245641/a68fc6b5-88c5-4b82-96f7-676d7d7415f5)
+![Grafos Imagen general](https://github.com/JoseGarayar/utec-graphs-project/assets/134245641/62e71cab-82f0-4173-8dc3-f39b9a4326c0)
 
 >## Integrantes
 >El equipo encargado de este proyecto está conformado por los siguientes miembros:
@@ -19,7 +19,8 @@ El presente informe tiene como objetivo detallar el proyecto de implementación 
 
 El proyecto consiste en la implementación de una estructura de datos de tipo grafo y los algoritmos de búsqueda asociados, con el objetivo de representar y analizar relaciones entre elementos. Se utilizará un JSON file parser para construir el grafo a partir de un dataset en formato JSON que contiene información sobre aeropuertos en todo el mundo.
 
-![Grafo de aeropuertos](https://github.com/JoseGarayar/utec-graphs-project/assets/134245641/37e3927d-cd68-4f5a-8b9f-dd57474b2509)
+![Grafo de aeropuertos](https://github.com/JoseGarayar/utec-graphs-project/assets/134245641/e42a1810-a9e4-495b-b96b-4430768b13ce)
+
 
 ## Estructura de datos de grafo
 
@@ -29,8 +30,7 @@ Se tendra los siguientes consideraciones con respecto a la estructura del grafo:
 * Se debe dar soporte a los grafos tipos: no-dirigidos.
 * Considerar solo grafos simples: sin loops ni multi-aristas. 
 
-![estrutura del grafo](https://github.com/JoseGarayar/utec-graphs-project/assets/134245641/b3a9532b-16e1-4d20-8805-8c1a6425757a)
-
+![estrutura del grafo](https://github.com/JoseGarayar/utec-graphs-project/assets/134245641/39f28f71-3014-4742-a04e-9ee19e1b8cb0)
 
 ### Métodos de la estructura de datos de grafo
 La estructura de datos de grafo debe implementar los siguientes métodos:
@@ -77,7 +77,7 @@ El algoritmo de Kruskal es un algoritmo para encontrar un árbol recubridor mín
 //1- Genera un gráfico MST utilizando el enfoque de Kruskal
 vector<Vertex<Airport, float>*> pathVertices = exec_astar(graph, startId, endId);//return a tree
 ```
-![KRUSKAL](https://github.com/JoseGarayar/utec-graphs-project/assets/134245641/1696ba76-627d-4a28-a75d-c8c447c8a4ba)
+![KRUSKAL](https://github.com/JoseGarayar/utec-graphs-project/assets/134245641/1a893aae-e504-42fe-bc25-3a541595f5ed)
 
 **Algoritmo A_asterisco**
 
@@ -88,8 +88,8 @@ El algoritmo A* utiliza una función de evaluación f(n)=g(n)+h'(n) , donde h'(n
 //2- Genera el camino desde el vértice "A" hasta el vértice "Z" siguiendo F=G+H
 vector<Vertex<Airport, float>*> pathVertices = exec_astar(graph, startId, endId);
 ```
-![A asterisco](https://github.com/JoseGarayar/utec-graphs-project/assets/134245641/4f3211ba-f18a-461e-afe7-cad45ca69aec)
 
+![A asterisco](https://github.com/JoseGarayar/utec-graphs-project/assets/134245641/3b9bfa71-6f80-449f-a8bf-21716fb79574)
 
 **Algoritmo Dijkstra**
 
@@ -100,8 +100,8 @@ El algoritmo de Dijkstra, también llamado algoritmo de caminos mínimos, es un 
 //2- Genera el camino mas corto desde el vértice "A" hasta el vértice "Z"
 vector<Vertex<Airport, float>*> result= dijkstra.shortestPath(startIdD, endIdD);
 ```
-![Dijsktra](https://github.com/JoseGarayar/utec-graphs-project/assets/134245641/655f140e-4bea-4958-81e6-9f588ab23c87)
 
+![Dijsktra](https://github.com/JoseGarayar/utec-graphs-project/assets/134245641/112d755d-90eb-4723-a93a-e5a5b271b736)
 
 
 **Algoritmo BFS**
@@ -112,8 +112,7 @@ Una búsqueda en anchura (BFS) es un algoritmo de búsqueda para lo cual recorre
 //3- Genera una ruta desde un nodo hacia todos los demas segun el dilema de anchuura
 vector<Vertex<Airport, float>*> resultBSF= BFS(graph, startIdBSF);
 ```
-![bfs](https://github.com/JoseGarayar/utec-graphs-project/assets/134245641/e9b23e5f-ed8e-4224-838e-82ad5fb2b8ab)
-
+![bfs](https://github.com/JoseGarayar/utec-graphs-project/assets/134245641/83a33a0a-9b25-4fd8-a641-5fafd56b3479)
 
 **Algoritmo DFS**
 
@@ -124,8 +123,7 @@ Una búsqueda en profundidad (DFS) es un algoritmo de búsqueda para lo cual rec
 vector<Vertex<Airport, float>*> resultDFS = DFS(graph,startIdDSF);
 ```
 
-![DFS](https://github.com/JoseGarayar/utec-graphs-project/assets/134245641/f591cb5f-a4f0-4988-90b1-b31b0e488541)
-
+![DFS](https://github.com/JoseGarayar/utec-graphs-project/assets/134245641/8d982778-00f1-42b7-884b-87ced0483e89)
 
 ## JSON file parser
 
@@ -170,8 +168,7 @@ Cada dato Json sigue la siguiente estructura:
 
 Cada dato sera representado como un nodo en el grafo creado, y cada arista tendra un peso determinado por la distancia Euclidiana entre la latiduda y longitud como muestra el siguiente esquema:
 
-
-![GENERAL](https://github.com/JoseGarayar/utec-graphs-project/assets/134245641/67a35d01-1cc1-4771-8fa8-bb4494ed6ccb)
+![GENERAL](https://github.com/JoseGarayar/utec-graphs-project/assets/134245641/eebfada3-7e1e-49c5-90ec-be74b57fd44f)
 
 Cargada la informacion se procedera a utilizar mediante los algoritmos implementados las operaciones de distancia minima, busqueda por amplitud y anchura, distancia minima utilizando heuristica, etc.
 
