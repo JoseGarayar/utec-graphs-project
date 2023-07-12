@@ -9,6 +9,7 @@
 #include "Parser/nlohmann/json.hpp"
 #include "Graph/Models/airport.h"
 #include "Graph/Algorithms/dfs.h"
+#include "pantallagrafica.h"
 
 using json = nlohmann::json;
 #include "tester.h"
@@ -100,6 +101,8 @@ int main() {
                     std::cout << " -> ";
                 }
             }
+            if (pathVertices.size()>0)
+                showRoute(pathVertices);            
             std::cout << std::endl;
             std::cout << std::endl;
         } else if (menuOptionAlgorithm == 2) {
@@ -110,6 +113,7 @@ int main() {
                 cout << edge->vertexes[0]->data.city << " - " << edge->vertexes[1]->data.city << ", peso: " << edge->weight << endl;
             }
             std::cout << std::endl;
+
         } else if (menuOptionAlgorithm == 3) {
             Dijkstra<Airport, float> dijkstra(graph);
             cout << "Ingrese el ID de inicio: ";
@@ -122,6 +126,8 @@ int main() {
                 cout << "Aeropuerto: " << vert->data.city << endl;
             }
             std::cout << std::endl;
+            if (resultDijkstra.size()>0)
+                showRoute(resultDijkstra);
         } else if (menuOptionAlgorithm == 4) {
             cout << "Ingrese el ID de inicio: ";
             cin >> startId;
