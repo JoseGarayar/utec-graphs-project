@@ -223,6 +223,12 @@ A continuación, se presenta una tabla que muestra la complejidad de algunas ope
 
 ### Observaciones
 
+- En algunos casos no existía el aeropuerto con el ID que contenía el array `destinations` en el JSON, para sobre llevar ese inconveniente tuvimos que hacer un procedimiento para validar si existe el aeropuerto en base al ID del array en `destinations` antes de calcular el peso.
+
+
+![Error data](images/validate_airport.png)
+
 - Nos dimos cuenta que la información en el archivo `airports.json` no estaba correcta y tuvimos que corregirla con información de Google Maps de aeropuerto en cuestión para que funcione correctamente. Ejemplo:
+
 
 ![Error data](images/data_error.jpeg)
