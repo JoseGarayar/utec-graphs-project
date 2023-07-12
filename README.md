@@ -220,3 +220,9 @@ A continuación, se presenta una tabla que muestra la complejidad de algunas ope
 
 
 > **PD:** Puntos extras sobre Evaluación Continua si se implementa una GUI.
+
+### Observaciones
+
+- Nos dimos cuenta que la información en el archivo `airports.json` no estaba correcta y tuvimos que corregirla con información de Google Maps de aeropuerto en cuestión para que funcione correctamente. Ejemplo:
+
+![Error data](images/data_error.jpeg)
