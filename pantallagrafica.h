@@ -50,7 +50,7 @@ void showRoute(vector<Vertex<Airport, float>*> points){
                     window.draw(text);
 
                     text.setString("(" + points[i]->data.latitude + ", " + points[i]->data.longitude + ")");
-                    text.setCharacterSize(12);
+                    text.setCharacterSize(11);
                     text.setPosition(x , y + 10);
                     window.draw(text);
 
