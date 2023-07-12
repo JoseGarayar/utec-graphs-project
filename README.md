@@ -186,7 +186,9 @@ A continuación, se presenta una tabla que muestra la complejidad de algunas ope
 |Búsqueda de arista    |  O(E)    | 
 |Recorrido del grafo (DFS/BFS)  |  O(V + E)       | 
 
+**Interface MAIN**
 
+![Main](https://github.com/JoseGarayar/utec-graphs-project/assets/134245641/af073597-2fa2-498e-bc47-701cc14af1cc)
 
 
 ## [Git Karma Guidelines](http://karma-runner.github.io/5.2/dev/git-commit-msg.html)
